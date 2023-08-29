@@ -58,10 +58,9 @@ class CoinViewCell: UITableViewCell {
     
    @IBAction func goToSafari(_ sender: Any) {
        if let url = URL(string: self.url! ){
-           let vc = SFSafariViewController (url: url)
+           //let vc = SFSafariViewController (url: url)
            //self.present(vc, animated: true)
+           print("clickiticlick \(url)")
            }
-       print("clickiticlick")
-       print(self.url)
    }
 }
