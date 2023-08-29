@@ -22,6 +22,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         coinsTableView.delegate = self
         coinsTableView.register(UINib(nibName: "CoinViewCell", bundle: nil), forCellReuseIdentifier: "CoinViewCell")
         coinsTableView.rowHeight = 150
+        coinsTableView.refreshControl = UIRefreshControl()
+        coinsTableView.refreshControl?.tintColor = UIColor.systemOrange
+        coinsTableView.refreshControl?.addTarget(self, action: #selector(RefreshHandler), for: .valueChanged)
         
         loader.hidesWhenStopped = true
         loader.startAnimating()
@@ -66,6 +69,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             print("TODO error check")
         }
+    }
+    
+    @objc func RefreshHandler(){
+        getJCoinsList(completionHandler: { result in
+            self.coinsList = result.data
+            self.filterableCoinList = self.coinsList
+            self.coinsTableView.reloadData()
+            self.loader.stopAnimating()
+            self.coinsTableView.refreshControl?.endRefreshing()
+        })
     }
     
 }
