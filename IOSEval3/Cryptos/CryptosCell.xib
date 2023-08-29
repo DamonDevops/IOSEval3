@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-bw-OZ7">
-                        <rect key="frame" x="0.0" y="0.0" width="358" height="101.66666666666667"/>
+                        <rect key="frame" x="89.666666666666686" y="0.0" width="179" height="101.66666666666667"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jJ-bG-9BD">
-                                <rect key="frame" x="0.0" y="0.0" width="358" height="20.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="179" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BdA-gY-7Yn">
-                                <rect key="frame" x="0.0" y="20.333333333333336" width="358" height="81.333333333333314"/>
+                                <rect key="frame" x="0.0" y="20.333333333333336" width="179" height="81.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BdA-gY-7Yn" secondAttribute="height" multiplier="1:1" id="2AV-rn-QeY"/>
                                 </constraints>
@@ -40,12 +40,16 @@
                 <constraints>
                     <constraint firstItem="Yg4-bw-OZ7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7EP-9g-r81"/>
                     <constraint firstAttribute="bottom" secondItem="Yg4-bw-OZ7" secondAttribute="bottom" id="CCW-Oy-aV2"/>
-                    <constraint firstItem="Yg4-bw-OZ7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H0W-2B-rYe"/>
                     <constraint firstItem="BdA-gY-7Yn" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.8" id="YE9-3Y-pVY"/>
-                    <constraint firstAttribute="trailing" secondItem="Yg4-bw-OZ7" secondAttribute="trailing" id="xJB-ve-clW"/>
+                    <constraint firstItem="Yg4-bw-OZ7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jyA-Hp-kZn"/>
+                    <constraint firstItem="Yg4-bw-OZ7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="lQb-rT-NAW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cryptoIcon" destination="BdA-gY-7Yn" id="AGY-68-p85"/>
+                <outlet property="cryptoLabel" destination="3jJ-bG-9BD" id="dLD-h1-eqr"/>
+            </connections>
             <point key="canvasLocation" x="88.549618320610676" y="35.91549295774648"/>
         </tableViewCell>
     </objects>

@@ -6,9 +6,12 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class CryptosCell: UITableViewCell {
 
+    @IBOutlet weak var cryptoLabel: UILabel!
+    @IBOutlet weak var cryptoIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +21,11 @@ class CryptosCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupCell(crypto :Cryptos){
+        cryptoLabel.text = crypto.name
+        cryptoIcon.af.setImage(withURL: URL(string: crypto.icon)!, placeholderImage: UIImage(systemName: "photo"))
     }
     
 }

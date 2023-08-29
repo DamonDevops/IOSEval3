@@ -82,3 +82,38 @@ struct PricingDetail :Codable{
     var priceUsd :String
     var date :String
 }
+
+
+func getCryptos(completionHandler: @escaping (CryptosList) -> ()){
+    var cryptosList :CryptosList = CryptosList()
+    AF.request("https://api.coinstats.app/public/v1/coins?skip=0&limit=50&currency=EUR").response{ response in
+        switch(response.result){
+        case .success(let data):
+            if let data = data{
+                let dataString = String(decoding: data, as: UTF8.self)
+                print(dataString)
+                DispatchQueue(label: "delay").asyncAfter(deadline: .now() + 5){
+                    DispatchQueue.main.async {
+                        do{
+                            cryptosList = try decoder.decode(CryptosList.self, from: data)
+                            completionHandler(cryptosList)
+                        }catch{
+                            print("DetailList Decode Failure")
+                        }
+                    }
+                }
+            }
+        case .failure(let error):
+            print("DetailList Failure \(error)")
+        }
+    }
+}
+
+struct CryptosList :Codable{
+    var coins :[Cryptos] = Array()
+}
+
+struct Cryptos :Codable{
+    var name :String
+    var icon :String
+}

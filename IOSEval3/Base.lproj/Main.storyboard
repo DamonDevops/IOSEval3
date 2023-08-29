@@ -33,11 +33,13 @@
         <!--Cryptos-->
         <scene sceneID="XI9-C4-88r">
             <objects>
-                <navigationController storyboardIdentifier="CryptosNav" id="N0A-Gp-QcF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CryptosNav" title="Cryptos" id="N0A-Gp-QcF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cryptos" image="bitcoinsign.circle" catalog="system" id="n6r-UM-FAl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SJs-My-VMr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SJs-My-VMr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="ligthPurple"/>
+                        <color key="barTintColor" name="ligthPurple"/>
                     </navigationBar>
                     <connections>
                         <segue destination="6Yv-Sw-PfL" kind="relationship" relationship="rootViewController" id="wn2-Zh-Kf4"/>
@@ -50,26 +52,38 @@
         <!--Cryptos-->
         <scene sceneID="btv-dS-ATs">
             <objects>
-                <viewController storyboardIdentifier="ListCryptos" title="Cryptos" id="6Yv-Sw-PfL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListCryptos" title="Cryptos" id="6Yv-Sw-PfL" customClass="CryptosViewController" customModule="IOSEval3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sCb-MY-mBn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N0O-ZT-eZG">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="LYC-8s-xGP">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7WP-yC-M80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7WP-yC-M80" firstAttribute="bottom" secondItem="N0O-ZT-eZG" secondAttribute="bottom" id="2Y5-Mr-D7g"/>
+                            <constraint firstItem="7WP-yC-M80" firstAttribute="trailing" secondItem="LYC-8s-xGP" secondAttribute="trailing" id="4VW-US-HWZ"/>
+                            <constraint firstItem="7WP-yC-M80" firstAttribute="bottom" secondItem="LYC-8s-xGP" secondAttribute="bottom" id="ABc-4S-0Td"/>
+                            <constraint firstItem="LYC-8s-xGP" firstAttribute="leading" secondItem="7WP-yC-M80" secondAttribute="leading" id="JIq-aa-5id"/>
                             <constraint firstItem="N0O-ZT-eZG" firstAttribute="top" secondItem="7WP-yC-M80" secondAttribute="top" id="Xvf-FY-Ubq"/>
                             <constraint firstItem="7WP-yC-M80" firstAttribute="trailing" secondItem="N0O-ZT-eZG" secondAttribute="trailing" id="hni-zb-d6E"/>
+                            <constraint firstItem="LYC-8s-xGP" firstAttribute="top" secondItem="7WP-yC-M80" secondAttribute="top" id="njg-oH-6Ti"/>
                             <constraint firstItem="N0O-ZT-eZG" firstAttribute="leading" secondItem="7WP-yC-M80" secondAttribute="leading" id="oao-an-hQw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uPc-fl-AD8"/>
+                    <navigationItem key="navigationItem" title="Cryptos" id="uPc-fl-AD8"/>
+                    <connections>
+                        <outlet property="cryptosTable" destination="N0O-ZT-eZG" id="0wb-iN-w5w"/>
+                        <outlet property="loader" destination="LYC-8s-xGP" id="Oyy-yE-g7A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZV-tp-cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,6 +98,7 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="ligthPurple"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="ligthPurple"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
